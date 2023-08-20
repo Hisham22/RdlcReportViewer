@@ -1,5 +1,6 @@
 ﻿using AspNetCore.Reporting;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -35,10 +36,12 @@ namespace WebApplication4.Controllers
                 _logger.LogInformation("Log message in the Print() method");
                 string mimetype = "";
                 int extension = 1;
-                var path = $"{this._webHostEnvironment.WebRootPath}\\Reports\\Report1.rdlc";
+                //var path = $"{this._webHostEnvironment.WebRootPath}\\Reports\\Report1.rdlc";
+                var path = $"var/www/Release/dotnet7/Reports/Report1.rdlc";
                 Dictionary<string, string> parameters = new Dictionary<string, string>();
                 parameters.Add("ReportParameter1", "Test Report");
                 error += $"path {path}";
+                
                 LocalReport localReport = new LocalReport(path);
                 var result = localReport.Execute(RenderType.Pdf, extension, parameters, mimetype);
                 return File(result.MainStream, "application/pdf");
