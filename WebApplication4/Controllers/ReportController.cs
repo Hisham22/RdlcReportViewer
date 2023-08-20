@@ -38,6 +38,7 @@ namespace WebApplication4.Controllers
                 var path = $"{this._webHostEnvironment.WebRootPath}\\Reports\\Report1.rdlc";
                 Dictionary<string, string> parameters = new Dictionary<string, string>();
                 parameters.Add("ReportParameter1", "Test Report");
+                error+=$"path {path}"
                 LocalReport localReport = new LocalReport(path);
                 var result = localReport.Execute(RenderType.Pdf, extension, parameters, mimetype);
                 return File(result.MainStream, "application/pdf");
