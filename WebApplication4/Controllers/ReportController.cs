@@ -43,7 +43,7 @@ namespace WebApplication4.Controllers
                 error += $"path {path}";
 
                 LocalReport localReport = new LocalReport(path);
-                var result = localReport.Execute(RenderType.Pdf, extension, parameters, mimetype);
+                var result = localReport.Execute(RenderType.Pdf, extension, null, mimetype);
                 return File(result.MainStream, "application/pdf");
             }
             catch (System.Exception Ex)
