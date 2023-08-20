@@ -58,7 +58,7 @@ namespace WebApplication4.Controllers
             string error = "";
             try
             {
-                int i = Convert.ToInt32("abc");
+                //int i = Convert.ToInt32("abc");
                 _logger.LogInformation("Log message in the MapData() method");
                 var dt = new DataTable();
                 GetData getData = new GetData(_db);
