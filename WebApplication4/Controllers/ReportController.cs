@@ -36,7 +36,7 @@ namespace WebApplication4.Controllers
                 _logger.LogInformation("Log message in the Print() method");
                 string mimetype = "";
                 int extension = 1;
-                var path = $"{this._webHostEnvironment.WebRootPath}//Reports//Report1.rdlc";
+                var path = $"{this._webHostEnvironment.WebRootPath}\\Reports\\Report1.rdlc";
                 //var path = $"var/www/Release/dotnet7/Reports/Report1.rdlc";
                 Dictionary<string, string> parameters = new Dictionary<string, string>();
                 parameters.Add("ReportParameter1", "Test Report");
@@ -49,8 +49,8 @@ namespace WebApplication4.Controllers
             catch (System.Exception Ex)
             {
 
-                _logger.LogError(Ex.StackTrace.ToString());
-                ViewBag.MyString = Ex.StackTrace.ToString();
+                _logger.LogError(Ex.ToString());
+                ViewBag.MyString = Ex.ToString();
                 error += Ex.StackTrace.ToString();
                 //return View(Ex.StackTrace.ToString());
             }
@@ -81,9 +81,9 @@ namespace WebApplication4.Controllers
             catch (System.Exception Ex)
             {
 
-                _logger.LogError(Ex.StackTrace.ToString());
-                ViewBag.MyString = Ex.StackTrace.ToString();
-                error = Ex.StackTrace.ToString();
+                _logger.LogError(Ex.ToString());
+                ViewBag.MyString = Ex.ToString();
+                error = Ex.ToString();
                 //return View(Ex.StackTrace.ToString());
             }
             return Content(error);
