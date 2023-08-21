@@ -51,7 +51,7 @@ namespace WebApplication4.Controllers
 
                 _logger.LogError(Ex.ToString());
                 ViewBag.MyString = Ex.ToString();
-                error += Ex.StackTrace.ToString();
+                error += Ex.ToString();
                 //return View(Ex.StackTrace.ToString());
             }
             return Content(error);
