@@ -68,6 +68,38 @@ namespace WebApplication4.Controllers
                 var dt = new DataTable();
                 GetData getData = new GetData(_db);
                 dt = getData.Data();
+                string mimetype = "";
+                int extension = 1;
+                var path = $"{this._webHostEnvironment.WebRootPath}//Reports//Report2.rdlc";
+                Dictionary<string, string> parameters = new Dictionary<string, string>();
+                //parameters.Add("ReportParameter1", "Hello from hisham");
+                LocalReport localReport = new LocalReport(path);
+                localReport.AddDataSource("DataSet1", dt);
+                var result = localReport.Execute(RenderType.Pdf, extension, parameters, mimetype);
+                return File(result.MainStream, "application/pdf");
+            }
+            catch (System.Exception Ex)
+            {
+
+                _logger.LogError(Ex.ToString());
+                ViewBag.MyString = Ex.ToString();
+                error = Ex.ToString();
+                //return View(Ex.StackTrace.ToString());
+            }
+            return Content(error);
+          
+        }
+
+        public IActionResult MapData1()
+        {
+            string error = "";
+            try
+            {
+                //int i = Convert.ToInt32("abc");
+                _logger.LogInformation("Log message in the MapData() method");
+                var dt = new DataTable();
+                GetData getData = new GetData(_db);
+                dt = getData.Data();
                 //string mimetype = "";
                 //int extension = 1;
                 //var path = $"{this._webHostEnvironment.WebRootPath}//Reports//Report2.rdlc";
@@ -91,7 +123,7 @@ namespace WebApplication4.Controllers
                 //return View(Ex.StackTrace.ToString());
             }
             return Content(error);
-          
+
         }
     }
 }
