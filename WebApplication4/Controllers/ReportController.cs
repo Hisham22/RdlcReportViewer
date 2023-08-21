@@ -36,7 +36,7 @@ namespace WebApplication4.Controllers
                 _logger.LogInformation("Log message in the Print() method");
                 string mimetype = "";
                 int extension = 1;
-                var path = $"{this._webHostEnvironment.WebRootPath}\\Reports\\Report1.rdlc";
+                var path = $"{this._webHostEnvironment.WebRootPath}//Reports//Report1.rdlc";
                 //var path = $"var/www/Release/dotnet7/Reports/Report1.rdlc";
                 Dictionary<string, string> parameters = new Dictionary<string, string>();
                 parameters.Add("ReportParameter1", "Test Report");
@@ -70,7 +70,7 @@ namespace WebApplication4.Controllers
                 dt = getData.Data();
                 string mimetype = "";
                 int extension = 1;
-                var path = $"{this._webHostEnvironment.WebRootPath}\\Reports\\Report2.rdlc";
+                var path = $"{this._webHostEnvironment.WebRootPath}//Reports//Report2.rdlc";
                 Dictionary<string, string> parameters = new Dictionary<string, string>();
                 //parameters.Add("ReportParameter1", "Hello from hisham");
                 LocalReport localReport = new LocalReport(path);
