@@ -77,9 +77,9 @@ namespace WebApplication4.Controllers
                 //localReport.AddDataSource("DataSet1", dt);
                 //var result = localReport.Execute(RenderType.Pdf, extension, parameters, mimetype);
                 //return File(result.MainStream, "application/pdf");
-                foreach (var item in dt)
+                foreach (DataRow item in dt.Rows)
                 {
-                    error += $"\n{item}";
+                    error += $"\n{item[0]}";
                 }
             }
             catch (System.Exception Ex)
